@@ -1,0 +1,20 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Home node server for Raspberry",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.3",
+    "express-md": "^2.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.25"
+  },
+  "scripts": {
+    "start": "rm -rf dist/**/* && tsc && node dist/index.js",
+    "build": "tsc index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "St.Permiakov",
+  "license": "ISC"
+}
