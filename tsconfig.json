@@ -4,5 +4,6 @@
     "rootDir": "src",
     "target": "ES5",
     "module": "commonjs",
+    "esModuleInterop": true,
   }
 }

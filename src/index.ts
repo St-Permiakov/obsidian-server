@@ -1,15 +1,19 @@
-import http = require('http');
+import express from 'express';
+import expressMd from 'express-md';
 import styles from './colors';
 
 const PORT = 8080;
 
-const requestListener = function (req, res) {
-  res.writeHead(200);
-  res.end('Hello, World!');
-}
+const app = express();
 
-const server = http.createServer(requestListener);
+const mdRouter = expressMd({
+  dir: `${__dirname}/docs`,
+  url: '/',
+  vars: { message: 'Hello, world!' }
+})
 
-console.log(`${styles.font.green}Server is ready on port ${styles.font.blue}${PORT}${styles.reset}`);
+app.use(mdRouter);
 
-server.listen(PORT);
+app.listen(PORT, () => {
+  console.log(`${styles.font.green}Express server listening on port ${styles.font.blue}${PORT}${styles.reset}`);
+})
